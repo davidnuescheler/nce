@@ -11,17 +11,35 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* brand color palette */
+  /* primary colors */
+  --color-white: #ffffff;
+  --color-clay: #acabc1;
+  --color-umber: #3f2b24;
+  --color-sand: #dbd1c5;
+  --color-dirt: #835333;
+  --color-bone: #f9f4ef;
+  
+  /* accent colors */
+  --color-rust: #d24f29;
+  --color-black: #000000;
+  --color-ochre: #c7832b;
+  --color-iron: #2b2828;
+
+  /* accessible color combinations - text on backgrounds */
+  --background-color: var(--color-bone); /* warm white background */
+  --light-color: var(--color-sand); /* light neutral for sections */
+  --dark-color: var(--color-umber); /* dark brown for contrast */
+  --text-color: var(--color-umber); /* dark brown text on light backgrounds */
+  --link-color: var(--color-dirt); /* earthy brown for links */
+  --link-hover-color: var(--color-rust); /* rust accent on hover */
+  --accent-color: var(--color-rust); /* primary accent color */
+  --accent-secondary: var(--color-ochre); /* secondary accent color */
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Cutive Mono', cutive-mono-fallback, 'Courier New', monospace;
+  --heading-font-family: 'Libre Baskerville', libre-baskerville-fallback, Georgia, serif;
+  --heading-font-family-alt: 'Courier Prime', courier-prime-fallback, 'Courier New', monospace;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -112,8 +130,16 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
+h1 { 
+  font-size: var(--heading-font-size-xxl);
+  font-style: italic;
+  font-weight: 600;
+}
+h2 { 
+  font-size: var(--heading-font-size-xl);
+  font-family: var(--heading-font-family-alt);
+  font-weight: 400;
+}
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
@@ -181,8 +207,8 @@ button {
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background-color: var(--accent-color);
+  color: var(--color-white);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -193,7 +219,7 @@ a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background-color: var(--color-umber);
   cursor: pointer;
 }
 
@@ -251,7 +277,33 @@ main > .section:first-of-type {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--color-sand);
+  color: var(--color-umber);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.dark {
+  background-color: var(--color-umber);
+  color: var(--color-bone);
+  margin: 0;
+  padding: 40px 0;
+}
+
+/* Ensure links have good contrast in dark sections */
+main .section.dark a:any-link {
+  color: var(--color-ochre);
+}
+
+main .section.dark a:hover {
+  color: var(--color-rust);
+}
+
+/* Ensure links have good contrast in light sections */
+main .section.light a:any-link {
+  color: var(--color-dirt);
+}
+
+main .section.light a:hover {
+  color: var(--color-rust);
 }

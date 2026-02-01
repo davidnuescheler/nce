@@ -2,7 +2,8 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+// Always treat as mobile to keep hamburger menu functional
+const isDesktop = { matches: false, addEventListener: () => {} };
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
