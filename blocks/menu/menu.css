@@ -1,0 +1,110 @@
+/* menu block: section titles, dotted leader rows, descriptions */
+
+.menu .menu__inner {
+  position: relative;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu .menu__sections {
+  padding: 2.5rem 3rem;
+}
+
+/* Corner flourishes – PNG with transparency */
+.menu .menu__corner {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background-image: url('corner.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+.menu .menu__corner-tl { top: 0; left: 0; }
+.menu .menu__corner-tr { top: 0; right: 0; transform: scaleX(-1); }
+.menu .menu__corner-bl { bottom: 0; left: 0; transform: scaleY(-1); }
+.menu .menu__corner-br { bottom: 0; right: 0; transform: rotate(180deg); }
+
+.menu .menu__section {
+  margin-top: 2em;
+}
+
+.menu .menu__section:first-child {
+  margin-top: 0;
+}
+
+.menu .menu__section-title {
+  text-align: center;
+  margin: 0 0 1.25em;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.menu .menu__section-title:empty {
+  display: none;
+  margin: 0;
+}
+
+.menu .menu__item {
+  margin-top: 1.25em;
+}
+
+.menu .menu__item:first-child {
+  margin-top: 0;
+}
+
+/* Row: flex with dotted background; dots show in gap between name and price, on last line only */
+.menu .menu__item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-image: url("data:image/svg+xml,%3csvg width='20' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='4' cy='6' r='1.2' fill='%233f2b24' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: repeat-x;
+  background-position: 0 calc(100% - 0.25em);
+}
+
+.menu .menu__item-name {
+  background-color: var(--background-color);
+  padding-right: 8px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.menu .menu__item-price {
+  background-color: var(--background-color);
+  padding-left: 8px;
+  flex-shrink: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.menu .menu__item-desc {
+  margin-top: 0.4em;
+  margin-bottom: 0;
+  padding-left: 1.25em;
+  font-size: var(--body-font-size-s);
+  color: var(--color-dirt);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.menu .menu__item-desc p {
+  margin: 0.25em 0 0;
+}
+
+.menu .menu__item-desc p:first-child {
+  margin-top: 0;
+}
